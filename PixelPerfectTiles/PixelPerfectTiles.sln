@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.34928.147
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PixelPerfectTiles", "PixelPerfectTiles\PixelPerfectTiles.csproj", "{BF9B05FC-2BD3-416D-BB61-7B2FCD89A48E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF9B05FC-2BD3-416D-BB61-7B2FCD89A48E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF9B05FC-2BD3-416D-BB61-7B2FCD89A48E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF9B05FC-2BD3-416D-BB61-7B2FCD89A48E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF9B05FC-2BD3-416D-BB61-7B2FCD89A48E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {67AF6F37-69CD-411A-9F94-0DFE1428F0C7}
+	EndGlobalSection
+EndGlobal
