@@ -14,4 +14,4 @@ However these solutions are patchwork workarounds that do not solve the underlyi
 In this sample implementation I propose a simple implementation with accurate pixel perfect results without any workaround solutions.
 
 # Controls
-WASD For player movement.
+WASD For player movement + and - keys for zoom
