@@ -1,5 +1,5 @@
 # PixelPerfectTiles
-A example implementation for a pixel perfect tileset renderer with floating point camera movement for monogame.
+An example implementation for a pixel perfect tileset renderer with floating point camera movement for monogame.
 
 # Why?
 There seem to be a lot of devs struggling with tilemap and floating point issues that often lead to one of two issues:
