@@ -6,17 +6,19 @@ namespace PixelPerfectTiles
 {
 	public class Game1 : Game
 	{
-		public const int RenderScaleFactor = 3;
+		public const int RenderScaleFactor = 2;
 		public const int ResolutionX = 1280;
 		public const int ResolutionY = 720;
 		public const int CameraFollowSpeed = 25;
 
-		private GraphicsDeviceManager _graphics;
+		private readonly GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
 		private TileRenderer _tileRenderer;
 		private Camera2D _camera;
 		private RenderTarget2D _renderTarget;
 		private Player _player;
+
+		public float Zoom = 2.0f;
 
 		public Game1()
 		{
@@ -60,6 +62,16 @@ namespace PixelPerfectTiles
 			float dt = (float)gameTime.ElapsedGameTime.TotalSeconds;
 			_player.Update(dt);
 
+			if (Keyboard.GetState().IsKeyDown(Keys.OemPlus))
+			{
+				Zoom += 1.0f / 32.0f;
+			}
+			if (Keyboard.GetState().IsKeyDown(Keys.OemMinus))
+			{
+				Zoom -= 1.0f / 32.0f;
+			}
+			Zoom = MathHelper.Clamp(Zoom, 1.0f, 4.0f);
+
 			_camera.Location = Vector2.Lerp(_camera.Location, new Vector2(_player.Position.X, _player.Position.Y), CameraFollowSpeed * dt);
 
 			base.Update(gameTime);
@@ -79,7 +91,14 @@ namespace PixelPerfectTiles
 			//Then the render target is drawn to the screen.
 			GraphicsDevice.SetRenderTarget(null);
 			_spriteBatch.Begin(SpriteSortMode.Immediate, null, SamplerState.PointWrap);
-			_spriteBatch.Draw(_renderTarget, new Rectangle(0, 0, ResolutionX, ResolutionY), null, Color.White);
+
+			int scaleX = ResolutionX * RenderScaleFactor;
+			int scaleY = ResolutionY * RenderScaleFactor;
+
+			int x = (int)(((scaleX * Zoom) - scaleX) / 2 / RenderScaleFactor);
+			int y = (int)(((scaleY * Zoom) - scaleY) / 2 / RenderScaleFactor);
+
+			_spriteBatch.Draw(_renderTarget, new Vector2(-x, -y), new Rectangle(0, 0, scaleX, scaleY), Color.White, 0f, Vector2.Zero, Zoom * RenderScaleFactor, SpriteEffects.None, 0f);
 			_spriteBatch.End();
 
 			base.Draw(gameTime);
